@@ -1,6 +1,11 @@
 local UIS = game:GetService("UserInputService")
-UIS.MouseIconEnabled = true
-UIS.MouseBehavior = Enum.MouseBehavior.Default
+task.spawn(function()
+    while true do
+        UIS.MouseIconEnabled = true
+        UIS.MouseBehavior = Enum.MouseBehavior.Default
+        task.wait(1)
+    end
+end)
 
 local InputService = game:GetService('UserInputService');
 local TextService = game:GetService('TextService');
