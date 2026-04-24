@@ -15,7 +15,6 @@ ProtectGui(ScreenGui);
 
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Global;
 ScreenGui.Parent = CoreGui;
-ScreenGui.IgnoreGuiInset.Enabled = true
 
 -- Nora Loader
 task.spawn(function()
@@ -35,10 +34,9 @@ task.spawn(function()
     bg.Size = UDim2.fromScale(1,1)
     bg.BackgroundColor3 = Color3.new(0,0,0)
     local img = Instance.new("ImageLabel", bg)
-    img.AnchorPoint = Vector2.new(0,0)
-    img.Position = UDim2.fromScale(0,0)
-    img.Size = UDim2.fromScale(1,1)
-    img.ScaleType = Enum.ScaleType.Stretch
+    img.AnchorPoint = Vector2.new(.5,.5)
+    img.Position = UDim2.fromScale(.5,.5)
+    img.Size = UDim2.fromOffset(220,220)
     img.BackgroundTransparency = 1
     img.ImageTransparency = 0.5
     pcall(function() img.Image = getasset(logoFile) end)
