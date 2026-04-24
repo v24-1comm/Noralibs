@@ -1,7 +1,3 @@
-local UIS = game:GetService("UserInputService")
-UIS.MouseIconEnabled = true
-UIS.MouseBehavior = Enum.MouseBehavior.Default
-
 local UIS = game:GetService('UserInputService')
 UIS.MouseBehavior = Enum.MouseBehavior.Default
 UIS.MouseIconEnabled = true
@@ -40,13 +36,13 @@ task.spawn(function()
     loader.Parent = game:GetService("CoreGui")
     local bg = Instance.new("Frame", loader)
     bg.Size = UDim2.fromScale(1,1)
-    bg.BackgroundColor3 = Color3.new(0,0,0)
+    bg.BackgroundTransparency = 1
     local img = Instance.new("ImageLabel", bg)
     img.AnchorPoint = Vector2.new(.5,.5)
     img.Position = UDim2.fromScale(.5,.5)
     img.Size = UDim2.fromOffset(220,220)
     img.BackgroundTransparency = 1
-    img.ImageTransparency = 0.5
+    img.ImageTransparency = 0
     pcall(function() img.Image = getasset(logoFile) end)
     task.wait(2)
     loader:Destroy()
