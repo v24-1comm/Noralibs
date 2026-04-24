@@ -1,12 +1,10 @@
 local UIS = game:GetService("UserInputService")
-task.spawn(function()
-    while true do
-        UIS.MouseIconEnabled = true
-        UIS.MouseBehavior = Enum.MouseBehavior.Default
-        task.wait(1)
-    end
-end)
+UIS.MouseIconEnabled = true
+UIS.MouseBehavior = Enum.MouseBehavior.Default
 
+local UIS = game:GetService('UserInputService')
+UIS.MouseBehavior = Enum.MouseBehavior.Default
+UIS.MouseIconEnabled = true
 local InputService = game:GetService('UserInputService');
 local TextService = game:GetService('TextService');
 local TweenService = game:GetService('TweenService');
@@ -27,17 +25,6 @@ ScreenGui.Parent = CoreGui;
 ScreenGui.IgnoreGuiInset = true
 ScreenGui.ResetOnSpawn = false
 
--- Nora Loader
-task.spawn(function()
-    local HttpService = game:GetService('HttpService')
-    local logoUrl = "https://raw.githubusercontent.com/v24-1comm/nora-assets/main/NoraLoader.png"
-    local logoFile = "NoraLoader.png"
-    local getasset = getcustomasset or getsynasset or (syn and syn.asset) or function(x) return x end
-    pcall(function()
-        if writefile and isfile and not isfile(logoFile) and game.HttpGet then
-            writefile(logoFile, game:HttpGet(logoUrl))
-        end
-    end)
     local loader = Instance.new("ScreenGui")
     loader.Name = "NoraLoader"
     loader.Parent = game:GetService("CoreGui")
@@ -1394,15 +1381,13 @@ do
                 Box.Position = UDim2.new(0, PADDING, 0, 0)
             else
                 -- we are focused and don't fit, so adjust position
-                local cursor = Box.CursorPosition
-                if cursor ~= -1 then
+                                if cursor ~= -1 then
                     -- calculate pixel width of text from start to cursor
                     local subtext = string.sub(Box.Text, 1, cursor-1)
                     local width = TextService:GetTextSize(subtext, Box.TextSize, Box.Font, Vector2.new(math.huge, math.huge)).X
                     
                     -- check if we're inside the box with the cursor
-                    local currentCursorPos = Box.Position.X.Offset + width
-
+                    
                     -- adjust if necessary
                     if currentCursorPos < PADDING then
                         Box.Position = UDim2.fromOffset(PADDING-width, 0)
@@ -2976,8 +2961,7 @@ function Library:CreateWindow(...)
         local oIcon = Mouse.Icon;
         local State = InputService.MouseIconEnabled;
 
-        local Cursor = Drawing.new('Triangle');
-        Cursor.Thickness = 1;
+                Cursor.Thickness = 1;
         Cursor.Filled = true;
 
         while Outer.Visible and ScreenGui.Parent do
