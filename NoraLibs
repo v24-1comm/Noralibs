@@ -1,6 +1,7 @@
-local UIS = game:GetService('UserInputService')
-UIS.MouseBehavior = Enum.MouseBehavior.Default
+local UIS = game:GetService("UserInputService")
 UIS.MouseIconEnabled = true
+UIS.MouseBehavior = Enum.MouseBehavior.Default
+
 local InputService = game:GetService('UserInputService');
 local TextService = game:GetService('TextService');
 local TweenService = game:GetService('TweenService');
@@ -21,6 +22,17 @@ ScreenGui.Parent = CoreGui;
 ScreenGui.IgnoreGuiInset = true
 ScreenGui.ResetOnSpawn = false
 
+-- Nora Loader
+task.spawn(function()
+    local HttpService = game:GetService('HttpService')
+    local logoUrl = "https://raw.githubusercontent.com/v24-1comm/nora-assets/main/NoraLoader.png"
+    local logoFile = "NoraLoader.png"
+    local getasset = getcustomasset or getsynasset or (syn and syn.asset) or function(x) return x end
+    pcall(function()
+        if writefile and isfile and not isfile(logoFile) and game.HttpGet then
+            writefile(logoFile, game:HttpGet(logoUrl))
+        end
+    end)
     local loader = Instance.new("ScreenGui")
     loader.Name = "NoraLoader"
     loader.Parent = game:GetService("CoreGui")
