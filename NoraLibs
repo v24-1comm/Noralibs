@@ -25,6 +25,16 @@ ScreenGui.Parent = CoreGui;
 ScreenGui.IgnoreGuiInset = true
 ScreenGui.ResetOnSpawn = false
 
+task.spawn(function()
+    local HttpService = game:GetService('HttpService')
+    local logoUrl = "https://raw.githubusercontent.com/v24-1comm/nora-assets/main/Nora.png"
+    local logoFile = "Nora.png"
+    local getasset = getcustomasset or getsynasset or (syn and syn.asset) or function(x) return x end
+    pcall(function()
+        if writefile and isfile and not isfile(logoFile) and game.HttpGet then
+            writefile(logoFile, game:HttpGet(logoUrl))
+        end
+    end)
     local loader = Instance.new("ScreenGui")
     loader.Name = "NoraLoader"
     loader.Parent = game:GetService("CoreGui")
@@ -34,15 +44,13 @@ ScreenGui.ResetOnSpawn = false
     local img = Instance.new("ImageLabel", bg)
     img.AnchorPoint = Vector2.new(.5,.5)
     img.Position = UDim2.fromScale(.5,.5)
-    img.Size = UDim2.fromOffset(1, 0, 1, 0)
+    img.Size = UDim2.fromOffset(220,220)
     img.BackgroundTransparency = 1
     img.ImageTransparency = 0.5
     pcall(function() img.Image = getasset(logoFile) end)
     task.wait(2)
     loader:Destroy()
 end)
-
-
 
 local Toggles = {};
 local Options = {};
