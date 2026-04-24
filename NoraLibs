@@ -15,6 +15,7 @@ ProtectGui(ScreenGui);
 
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Global;
 ScreenGui.Parent = CoreGui;
+ScreenGui.IgnoreGuiInset.Enabled = true
 
 -- Nora Loader
 task.spawn(function()
